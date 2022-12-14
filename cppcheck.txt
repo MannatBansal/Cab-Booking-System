@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<results version="2">
+   <cppcheck version="1.90"/>
+   <errors>
+Checking splint2CabProject/backend.cpp ...
+1/4 files checked 10% done
+Checking splint2CabProject/frontend.cpp ...
+2/4 files checked 48% done
+Checking splint2CabProject/main.cpp ...
+3/4 files checked 66% done
+Checking splint2CabProject/vehicle.cpp ...
+4/4 files checked 100% done
+   </errors>
+</results>

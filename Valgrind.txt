@@ -1,0 +1,48 @@
+######################################################################################################################
+                                        Cab Booking System
+######################################################################################################################
+
+        My Location :: 16.6143, 80.5415 (B-Colony Kalyana Mandapam, Krishna, AP, India)
+______________________________________________________________________________________________________________________
+        Enter Username: sehab
+        Enter Password: 1234
+
+                        Vehicle type
+        1. Mini
+        2. Sedan
+        3. Prime
+        4. Exit
+
+        Enter the type of Vehicle you want to book:: 1
+
+
+        Vehicle Type: Mini
+        Model: Swift LXI
+        Car Details: "DL01J2800_4seater"""
+        Driver Name: Jean Alesi
+        Age: 40
+        Fare: 13
+        Phone Number: 8788546589
+
+        [Press 1 to book the cab | Press 0 to cancel]
+        Press: 1
+
+
+        Write your first name:: Sk
+        Write your Last name:: Sehabuddin
+        Write your destination address:: Kolkata
+
+
+                                Booked Successfully
+        Bill Generated
+        Your OTP is: 9844
+==80==
+==80== HEAP SUMMARY:
+==80==     in use at exit: 0 bytes in 0 blocks
+==80==   total heap usage: 77 allocs, 77 frees, 107,264 bytes allocated
+==80==
+==80== All heap blocks were freed -- no leaks are possible
+==80==
+==80== For lists of detected and suppressed errors, rerun with: -s
+==80== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+skseha@LAPTOP-C8U7FLJU:/mnt/g/a$

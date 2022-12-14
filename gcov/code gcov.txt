@@ -1,0 +1,301 @@
+        -:    0:Source:text.cpp
+        -:    0:Graph:text.gcno
+        -:    0:Data:text.gcda
+        -:    0:Runs:1
+        -:    1:#include <iostream>
+        -:    2:#include <vector>
+        -:    3:#include <string>
+        -:    4:#include <random>
+        -:    5:#include <time.h>
+        -:    6:#include <fstream>
+        -:    7:#include <sstream>
+        -:    8:#include <ctime>
+        -:    9:#include <cstdlib>
+        -:   10:#include <map>
+        -:   11:
+        -:   12:using namespace std;
+        -:   13:
+        -:   14:int closest_vehicle(int vehicle_choice);
+        -:   15://void cabBooked(vector<vehicle> booked_cab, const coordinates myLocation);
+        -:   16://void start(const coordinates myLocation);
+        -:   17:int booking();
+        -:   18:
+        -:   19:class coordinates
+        -:   20:{
+        -:   21:    double latitude;
+        -:   22:    double longitude;
+        -:   23:    string address;
+        -:   24:
+        -:   25:public:
+        1:   26:    coordinates(double lat = 0, double lon = 0, string add = "")
+        1:   27:    {
+        1:   28:        latitude = lat;
+        1:   29:        longitude = lon;
+        1:   30:        address = add;
+        1:   31:    }
+        -:   32:    void random_coordinates();
+        -:   33:    void print_coordinates();
+        -:   34:};
+        -:   35:
+        -:   36:class vehicle
+        -:   37:{
+        -:   38:public:
+        -:   39:    string vehicleType;
+        -:   40:    string model;
+        -:   41:    string cDetails;
+        -:   42:    string Dname;
+        -:   43:    string age;
+        -:   44:    int fare;
+        -:   45:    string phn;
+        9:   46:    vehicle(string vt, string md, string cD, string Dn, string ag, int fr, string pn)
+        9:   47:    {
+        9:   48:        vehicleType = vt;
+        9:   49:        cDetails = cD;
+        9:   50:        model = md;
+        9:   51:        Dname = Dn;
+        9:   52:        age = ag;
+        9:   53:        fare = fr;
+        9:   54:        phn = pn;
+        9:   55:    }
+        -:   56:
+        -:   57:    void display();
+        -:   58:    static vector<vehicle> vehicle_data(int vehicle_choice);
+        -:   59:};
+        -:   60:
+        1:   61:void cabBooked(vector<vehicle> booked_cab, const coordinates myLocation)
+        -:   62:{
+        -:   63:	int fare ;
+        2:   64:	string model;
+        2:   65:	string vehicleType;
+        1:   66:	system("clear");
+        1:   67:	srand(time(NULL));
+        1:   68:	int number = rand() % 10000;
+        -:   69:
+        2:   70:	string f_name, l_name, destination;
+        1:   71:	cout << endl << endl <<"\tWrite your first name:: ";
+        1:   72:	cin >> f_name;
+        1:   73:	cout << "\tWrite your Last name:: ";
+        1:   74:	cin >> l_name;
+        1:   75:	cout << "\tWrite your destination address:: ";
+        1:   76:	cin >> destination;
+        -:   77:
+        2:   78:	string line;
+        2:   79:	ofstream file;
+        1:   80:	file.open("receipt.txt");
+        -:   81:	file << "\n\n\t\t************************ Cab Booking System ************************\n"
+        1:   82:		 << "\t\t                             RECEIPT                         \n";
+        1:   83:	file << "\t\tCustomer name: " << f_name << " " << l_name << endl;
+        1:   84:	file << "\t\tDestination: " << destination << endl;
+        1:   85:	file << "\t\t__________________________________________________\n";
+        1:   86:	file << "\t\tVehicle Type\tModel\t\tTotal\n";
+        1:   87:	file << "\t\t__________________________________________________\n";
+        1:   88:	file << "\t\t" << booked_cab[0].vehicleType << "\t\t" << booked_cab[0].model << "\t" << booked_cab[0].fare*100 << "\n";
+        -:   89:
+        1:   90:	std::cout << endl << endl
+        1:   91:		  << "\t\t\t\tBooked Successfully" << endl
+        1:   92:		  << "\tBill Generated" << endl
+        1:   93:		  << "\tYour OTP is: " << number << endl;
+        1:   94:	file.close();
+        1:   95:}
+        -:   96:
+        1:   97:void start(coordinates myLocation)
+        -:   98:{
+        1:   99:	std::cout << "######################################################################################################################";
+        1:  100:	std::cout << "\n";
+        -:  101:	std::cout << "\t"
+        1:  102:			  << "   				Cab Booking System   ";
+        -:  103:	std::cout << "\n"
+        1:  104:			  << "######################################################################################################################";
+        1:  105:	std::cout << "\n\n";
+        1:  106:	std::cout << "\tMy Location :: ";
+        1:  107:	myLocation.print_coordinates();
+        1:  108:	std::cout << "______________________________________________________________________________________________________________________\n";
+        -:  109:	//system("clear");
+        1:  110:}
+        -:  111:
+        1:  112:int booking()
+        -:  113:{
+        -:  114:	int vehicle_choice;
+        1:  115:	cout << "\t\t\tVehicle type" << endl
+        1:  116:		 << "\t1. Mini" << endl
+        1:  117:		 << "\t2. Sedan" << endl
+        1:  118:		 << "\t3. Prime" << endl
+        1:  119:		 << "\t4. Exit" << endl;
+        -:  120:
+    #####:  121:	do
+        -:  122:	{
+        1:  123:		cout << endl << "\tEnter the type of Vehicle you want to book:: ";
+        1:  124:		cin >> vehicle_choice;
+        -:  125:
+        1:  126:		switch (vehicle_choice)
+        -:  127:		{
+        1:  128:		case 1:
+        1:  129:			return vehicle_choice;
+        -:  130:			break;
+    #####:  131:		case 2:
+    #####:  132:			return vehicle_choice;
+        -:  133:			break;
+    #####:  134:		case 3:
+    #####:  135:			return vehicle_choice;
+        -:  136:			break;
+    #####:  137:		default:
+    #####:  138:			cout << "\tWrong choice!" << endl;
+    #####:  139:			break;
+        -:  140:		}
+    #####:  141:	} while (vehicle_choice != 4);
+    #####:  142:	return vehicle_choice;
+        -:  143:}
+        -:  144:
+        1:  145:void coordinates::random_coordinates()
+        -:  146:{
+        1:  147:    const double my_latitudes[5] = {16.61432217, 16.61933274, 16.61151047};
+        1:  148:    const double my_longitudes[5] = {80.5415045, 80.54007148, 80.5040995};
+        -:  149:    const string my_address[5] = {"B-Colony Kalyana Mandapam, Krishna, AP, India",
+        -:  150:                                  "Swargam Restaurant, AP India",
+        9:  151:                                  "Novotel, Vijayawada, AP, India"};
+        1:  152:    srand(time(0));
+        1:  153:    int random = rand() % 3;
+        1:  154:    latitude = my_latitudes[random];
+        1:  155:    longitude = my_longitudes[random];
+        1:  156:    address = my_address[random];
+        1:  157:}
+        -:  158:
+        1:  159:void coordinates::print_coordinates()
+        -:  160:{
+        1:  161:    cout << latitude << ", " << longitude << " (" << address << ")"
+        1:  162:         << "\n";
+        1:  163:}
+        -:  164:
+        1:  165:int closest_vehicle(int vehicle_choice)
+        -:  166:{
+        1:  167:    srand(time(0));
+        1:  168:    int random = rand() % 3;
+        -:  169:    int car_number;
+        1:  170:    if (vehicle_choice == 1)
+        1:  171:        return random;
+    #####:  172:    else if (vehicle_choice == 2)
+    #####:  173:        return random + 3;
+    #####:  174:    else if (vehicle_choice == 3)
+    #####:  175:        return random + 6;
+    #####:  176:    else if (vehicle_choice == 4)
+    #####:  177:        exit(0);
+        -:  178:    else
+        -:  179:    {
+    #####:  180:        cout << "\tNo vehicle available";
+    #####:  181:        exit(0);
+        -:  182:    }
+        -:  183:}
+        -:  184:
+        1:  185:void vehicle::display()
+        -:  186:{
+        1:  187:    cout << endl
+        1:  188:         << endl
+        1:  189:         << "\tVehicle Type: " << vehicleType << endl
+        1:  190:         << "\tModel: " << model << endl
+        1:  191:         << "\tCar Details: " << cDetails << endl
+        1:  192:         << "\tDriver Name: " << Dname << endl
+        1:  193:         << "\tAge: " << age << endl
+        1:  194:         << "\tFare: " << fare << endl
+        1:  195:         << "\tPhone Number: " << phn << endl;
+        1:  196:}
+        -:  197:
+        1:  198:vector<vehicle> vehicle::vehicle_data(int vehicle_choice)
+        -:  199:{
+        2:  200:    ifstream f;
+        1:  201:    f.open("Car_details.csv");
+        2:  202:    vector<vehicle> dr;
+        2:  203:    string line = "";
+        1:  204:    getline(f, line);
+       10:  205:    while (getline(f, line))
+        -:  206:    {
+        -:  207:        int fare;
+       18:  208:        string vehicleType;
+       18:  209:        string model;
+       18:  210:        string cDetails;
+       18:  211:        string Dname;
+       18:  212:        string age;
+       18:  213:        string phn;
+       18:  214:        string temp = " ";
+       18:  215:        stringstream inputString(line);
+        -:  216:
+        9:  217:        getline(inputString, vehicleType, ',');
+        9:  218:        getline(inputString, model, ',');
+        9:  219:        getline(inputString, cDetails, ',');
+        9:  220:        getline(inputString, Dname, ',');
+        9:  221:        getline(inputString, age, ',');
+        9:  222:        getline(inputString, temp, ',');
+        9:  223:        fare = atoi(temp.c_str());
+        9:  224:        getline(inputString, phn, ',');
+       27:  225:        vehicle vh(vehicleType, model, cDetails, Dname, age, fare, phn);
+        -:  226:
+        9:  227:        dr.push_back(vh);
+        9:  228:        line = "";
+        -:  229:    }
+        -:  230:
+        1:  231:    int cab = closest_vehicle(vehicle_choice);
+        1:  232:    dr[cab].display();
+        -:  233:    int booking_choice;
+        -:  234:
+        1:  235:    cout << endl
+        -:  236:         << "\t[Press 1 to book the cab | "
+        1:  237:         << "Press 0 to cancel]" << endl
+        1:  238:         << "\tPress: ";
+        1:  239:    cin >> booking_choice;
+        1:  240:    if (booking_choice == 1)
+        -:  241:    {
+        2:  242:        vector<vehicle> booked_cab;
+        1:  243:        booked_cab.push_back(dr[cab]);
+        2:  244:        return booked_cab;
+        -:  245:    }
+    #####:  246:    else if (booking_choice == 0)
+        -:  247:    {
+    #####:  248:        exit(0);
+        -:  249:    }
+        -:  250:    else
+        -:  251:    {
+    #####:  252:        cout << "\tWrong keyword";
+    #####:  253:        exit(0);
+        -:  254:    }
+        -:  255:}
+        -:  256:
+        -:  257:
+        1:  258:int main(void)
+        -:  259:{
+        1:  260:    system("clear");
+        2:  261:    coordinates myLocation;
+        1:  262:    myLocation.random_coordinates();
+        1:  263:    start(myLocation);
+        1:  264:    int flag = 0;
+    #####:  265:    do
+        -:  266:    {
+        -:  267:        map<string, string> dict = {{"moin", "1234"},
+        -:  268:                                    {"sehab", "1234"},
+        -:  269:                                    {"rishav", "1234"},
+        -:  270:                                    {"divya", "1234"},
+        8:  271:                                    {"mannat", "1234"}};
+        2:  272:        string username, password;
+        1:  273:        cout << "\tEnter Username: ";
+        1:  274:        cin >> username;
+        1:  275:        cout << "\tEnter Password: ";
+        1:  276:        cin >> password;
+       1*:  277:        if (dict.find(username) != dict.end() && dict[username] == password)
+        -:  278:        {
+        1:  279:            cout << "\n\tLogin Successful\n\n";
+        1:  280:            system("clear");
+        1:  281:            int vehicle_choice = booking();
+        -:  282:
+        1:  283:            vector<vehicle> booked_cab = vehicle::vehicle_data(vehicle_choice);
+        -:  284:
+        1:  285:            cabBooked(booked_cab, myLocation);
+        1:  286:            flag++;
+        -:  287:        }
+        -:  288:        else
+        -:  289:        {
+    #####:  290:            system("clear");
+    #####:  291:            cout << "\n\tInvalid Credentials. Try again..." << endl
+    #####:  292:                 << endl;
+        -:  293:        }
+        1:  294:    } while (flag == 0);
+        -:  295:
+        1:  296:    return 0;
+        -:  297:}

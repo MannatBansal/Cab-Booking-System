@@ -1,0 +1,10 @@
+
+
+		************************ Cab Booking System ************************
+		                             RECEIPT                         
+		Customer name: mannat bansal
+		Destination: bangalore
+		__________________________________________________
+		Vehicle Type	Model		Total
+		__________________________________________________
+		Sedan		Sqoda Kushaq	1800
